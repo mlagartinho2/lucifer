@@ -1,0 +1,36 @@
+{
+  // --- Copilot customization -------------------------------------------
+  // Load .github/copilot-instructions.md and .github/instructions/*.instructions.md
+  "github.copilot.chat.codeGeneration.useInstructionFiles": true,
+  // Attach *.instructions.md files by their applyTo globs
+  "chat.includeApplyingInstructions": true,
+  // Follow links from instruction files (e.g. the constitution)
+  "chat.includeReferencedInstructions": true,
+
+  // --- Keep huge spec files out of search results ----------------------
+  // These two files are ~150 KB each and must never be loaded whole.
+  // Read them with grep/targeted ranges only.
+  "search.exclude": {
+    "docs/spec/_preamble-and-changelog.md": true,
+    "docs/spec/13-*.md": true,
+    "**/.venv": true,
+    "**/__pycache__": true
+  },
+  "files.watcherExclude": {
+    "**/.venv/**": true,
+    "**/__pycache__/**": true
+  },
+
+  // --- Python (tooling choices are made in BUILD_ORDER Step 0) ----------
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["tests"],
+  "python.terminal.activateEnvironment": true,
+
+  // --- Editor hygiene ---------------------------------------------------
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.eol": "\n",
+  "[markdown]": {
+    "files.trimTrailingWhitespace": false
+  }
+}
