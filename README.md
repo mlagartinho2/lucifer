@@ -30,7 +30,7 @@ This folder is a ready-to-open VS Code workspace for building Lucifer with GitHu
 
 Do one step per chat session and commit when its acceptance test passes.
 
-1. **Step 0 only**: run `/speckit-constitution` if you want to amend the pre-filled constitution (it already encodes the CLAUDE.md invariants). Step 0 must also lock Python in the spec and decide the lint, type-check and test commands.
+1. **Step 0 only**: run `/speckit-constitution` if you want to amend the pre-filled constitution (it already encodes the CLAUDE.md invariants). Step 0 must also lock Python in the spec and decide the lint, type-check and test commands. This folder holds a read-only mirror, so make the spec edit in the source Lucifer folder (version bump + changelog line), then run `scripts/sync-spec.sh`.
 2. `/lucifer-start-step <N>` — loads only that step's spec sections and checklist entries, lists ambiguities, and drafts the inputs for the next two commands. Answer its questions.
 3. `/speckit-specify` with the drafted *what/why* text, then optionally `/speckit-clarify`.
 4. `/speckit-plan` with the drafted technical constraints. The plan's Constitution Check must pass.
@@ -43,7 +43,7 @@ If code and spec ever disagree, stop and fix the spec in the source repo (versio
 
 ## Keeping the spec in sync
 
-The spec material here is a snapshot of the parent Lucifer folder, taken on 2026-10-09 (spec v0.69). After any change in the source, run:
+The spec material here is a snapshot of the parent Lucifer folder, taken on 2026-10-10 (spec v0.71). After any change in the source, run:
 
 ```bash
 scripts/sync-spec.sh          # source defaults to the parent folder

@@ -24,7 +24,7 @@ class DirectEndpointConfig:
 ```python
 CONTEXT_WINDOW_AND_MAX_OUTPUT: dict[str, tuple[int | None, int | None]] = {
     #                        context_window   max_output_tokens
-    "google/gemma-4-26B-A4B-it":   (263_144,   128_000),
+    "google/gemma-4-26B-A4B-it":   (262_144,   128_000),
     "openai/gpt5.4":               (100_000,   32_000),
     "openai/gpt-5.6-luna":         (100_000,   32_000),
     "ibm-granite/granite-4.1-30b": (65_536,    8_000),

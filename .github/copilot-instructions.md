@@ -5,7 +5,7 @@ Lucifer is an in-house coding agent (functional equivalent of GitHub Copilot) on
 The project constitution is `.specify/memory/constitution.md`. This file is the day-to-day version of it. If they ever differ, the constitution and the spec win.
 
 ## Where things live
-- Spec, split by section: `docs/spec/NN-*.md` (currently v0.69). **This is a read-only mirror** of the source repository; do not edit it. If the spec needs a change, say so and stop.
+- Spec, split by section: `docs/spec/NN-*.md` (currently v0.71). **This is a read-only mirror** of the source repository; do not edit it. If the spec needs a change, say so and stop.
 - Resolution status and real values: `LUCIFER_IMPLEMENTATION_CHECKLIST_v1.md` (C1–C59).
 - Build plan: `BUILD_ORDER.md` (Steps 0–12, one per Spec Kit feature).
 - Spec Kit: `.specify/` (constitution, templates, scripts) and the `/speckit-*` skills in `.github/skills/`.
@@ -28,7 +28,7 @@ Python 3.12 (the spec's pseudocode is Python). Package `lucifer/`, tests in `tes
 - The sandbox (bubblewrap-style namespaces + seccomp, §6.2) is the real security boundary, not the command allowlist. Shared `is_within_repo_root` predicate for all path checks. Mutating git subcommands are blocked in `run_command`.
 - Workspace (in-memory staging) is the source of truth until `commit()`; sandbox is a synced copy with host-side change detection (§7).
 - Verification suite = explicit per-repo config only. No auto-detection fallback. No suite → skip baseline + done-gate, and surface `verification_status` at diff review.
-- Model IDs are `<provider>/<model>` strings, one combined `ModelSpec.id`. Per-model context/max-output numbers come from the registry table (§2), never hard-coded elsewhere.
+- `ModelSpec.id` is one combined string: `<provider>/<model>` for Gateway-routed models, and the bare Azure deployment name for the two `direct_endpoint` embedding entries (`text-embedding-3-small`/`-large`, §2), so do not require a `/` there. Per-model context/max-output numbers come from the registry table (§2), never hard-coded elsewhere.
 - `text-embedding-3-small` is reached via `direct_endpoint`, outside the Gateway.
 - Escalation is the safety net: don't add retry layers the spec doesn't define.
 - Open values (C53 `direct_endpoint` config, C58 `SKILL_MATCH_THRESHOLD`, C59 `MAX_ACTIVE_SKILLS`): implement as config with a clearly marked placeholder default; do not invent final numbers.
