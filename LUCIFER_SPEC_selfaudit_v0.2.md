@@ -1,5 +1,19 @@
 # Self-Audit — Internal Consistency Check on `LUCIFER_SPEC_v0_draft.md` (v0.2)
 
+> **Status (spec v0.72): every finding below has been resolved.** This file is kept as the historical record of the v0.2 audit: the spec cites its labels (A1–A6), and the v0.2 → v0.3 changelog points here for the before/after reference list. Line numbers below refer to the v0.2 draft and no longer match. The "nothing applied yet" wording that follows is the original v0.2 text.
+>
+> | Finding | Resolved | Where |
+> |---|---|---|
+> | A1 `INFRA` feeds escalate/abort budgets | v0.4 | §3.2, §5.1 |
+> | A2 sandbox isolation never stated | v0.4; wording tightened v0.36 (C37) | §6.2, §7.3–7.4 |
+> | A3 §4.1 lacked the "escalation is the safety net" rationale | v0.4 | §4.1 |
+> | A4 no shared repo-root predicate | v0.4 (`is_within_repo_root`) | §7.4, §7.6 |
+> | A5 stuck event counted once or twice | v0.4 (counts once) | §3.2, §3.3 |
+> | A6 escalate trigger exact-count or at-or-above | v0.4 (exact equality) | §3.2 |
+> | Section B: 24 broken `§N` references + 2 notation nits | v0.3 | throughout |
+>
+> Re-checked at v0.71 (BUILD_ORDER Step 12 method): all 1,667 `§` references in `docs/spec/` resolve to an existing heading. That checks existence only, not whether each reference points at the right target.
+
 Findings only, nothing applied yet — same ground rule as the original self-audit
 request. Two kinds of problem turned up: a handful of **design-level inconsistencies**
 (sections making claims that don't actually hold up against each other) and a large
@@ -162,9 +176,4 @@ be gone through reference by reference.
 
 ---
 
-*Nothing above has been applied to `LUCIFER_SPEC_v0_draft.md`. Let me know which of
-A1–A6 you want resolved (and how), and whether to go ahead and fix the §B reference
-list — the +1-pattern ones are close to mechanical, but I'd still walk each one
-individually rather than batch-replace, given two of them don't fit the pattern and
-the "right in one place, wrong in another" cases show this wasn't a single clean
-shift.*
+*Superseded closing (v0.2): this originally ended by asking which of A1–A6 to resolve and whether to fix the Section B references. All of them were resolved in v0.3 and v0.4; see the status block at the top.*

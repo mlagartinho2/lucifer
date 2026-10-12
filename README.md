@@ -43,7 +43,7 @@ If code and spec ever disagree, stop and fix the spec in the source repo (versio
 
 ## Keeping the spec in sync
 
-The spec material here is a snapshot of the parent Lucifer folder, taken on 2026-10-10 (spec v0.71). After any change in the source, run:
+The spec material here is a snapshot of the parent Lucifer folder, taken on 2026-10-12 (spec v0.72). After any change in the source, run:
 
 ```bash
 scripts/sync-spec.sh          # source defaults to the parent folder
